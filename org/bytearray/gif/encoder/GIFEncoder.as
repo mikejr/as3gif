@@ -296,7 +296,11 @@ package org.bytearray.gif.encoder
 		    palSize = 7;
 		    // get closest match to transparent color if specified
 		    if (transparent != null) {
-		      transIndex = findClosest(transparent);
+					transIndex = nq.map(
+		      	(transparent & 0xFF0000) >> 16,
+		      	(transparent & 0x00FF00) >> 8,
+		      	(transparent & 0x0000FF)
+		      );
 		    }
 		}
 		
